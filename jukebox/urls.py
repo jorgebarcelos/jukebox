@@ -1,10 +1,11 @@
 from django.urls import path
-from jukebox.views import music_list, music_create, get_music_by_name, get_music_by_data
+from jukebox.views import MusicList, SearchMusicByName, AddMusic, MusicRandom, SearchMusicByDate
 
 
 urlpatterns = [
-    path('', music_create),
-    path('list/', music_list),
-    path('<str:title>', get_music_by_name),
-    path('<str:get_music_by_data>', get_music_by_data)
+    path('list/', MusicList.as_view()),
+    path('list/random', MusicRandom.as_view()),
+    path('list/<str:title>', SearchMusicByName.as_view()),
+    path('list/<str:published_year>', SearchMusicByDate.as_view()),
+    path('create/', AddMusic.as_view()),
 ]

@@ -6,3 +6,9 @@ class MusicSerializer(serializers.ModelSerializer):
     class Meta:
         model = Music
         fields = '__all__'
+
+
+class RandomMusicSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Music
+        fields = '__all__'
